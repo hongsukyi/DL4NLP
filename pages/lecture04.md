@@ -17,7 +17,7 @@
 
 이번 실습은 다음 순서로 진행합니다.
 
-![문장에서 전처리 데이터 파일까지의 전체 흐름](assets/lec04_01_preprocessing_workflow.png)
+![문장에서 전처리 데이터 파일까지의 전체 흐름](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_01_preprocessing_workflow.png)
 
 ```text
 한국어 문장과 범주
@@ -74,7 +74,7 @@ np.random.seed(SEED)
 
 실습용으로 정리된 AI Hub 한국어-영어 병렬 말뭉치의 한국어 대화 문장을 불러옵니다.
 
-![엑셀 파일에서 원문과 상황 열을 확인하는 과정](assets/lec04_02_load_data.png)
+![엑셀 파일에서 원문과 상황 열을 확인하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_02_load_data.png)
 
 ```python
 url = "https://raw.githubusercontent.com/hongsukyi/Lectures/main/data/aihub_conver.xlsx"
@@ -97,7 +97,7 @@ df.head()
 
 전체 상황 중에서 `면접`, `학교`, `협상`과 관련된 세 범주만 선택합니다.
 
-![전체 범주에서 면접 학교 협상 범주를 선택하는 과정](assets/lec04_03_select_categories.png)
+![전체 범주에서 면접 학교 협상 범주를 선택하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_03_select_categories.png)
 
 ```python
 label_map = {
@@ -120,7 +120,7 @@ print(df["label"].value_counts())
 
 각 범주에서 800문장씩 선택하여 총 2,400문장의 균형 데이터셋을 만듭니다.
 
-![세 범주에서 같은 수의 문장을 선택하는 과정](assets/lec04_04_balanced_sampling.png)
+![세 범주에서 같은 수의 문장을 선택하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_04_balanced_sampling.png)
 
 ```python
 N = 800
@@ -143,7 +143,7 @@ df.head()
 
 한국어 문장을 단순히 공백으로만 나누지 않고, KLUE-BERT의 서브워드 토크나이저를 사용합니다.
 
-![한국어 문장을 서브워드 토큰으로 나누는 예](assets/lec04_05_subword_tokenizer.png)
+![한국어 문장을 서브워드 토큰으로 나누는 예](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_05_subword_tokenizer.png)
 
 ```python
 tok = AutoTokenizer.from_pretrained("klue/bert-base")
@@ -164,7 +164,7 @@ print("토큰:", tok.tokenize(sample))
 
 배치로 학습하려면 모든 문장의 입력 길이가 같아야 합니다. 먼저 각 문장의 서브워드 길이 분포를 확인합니다.
 
-![문장 길이 분포에서 MAX_LEN을 정하는 과정](assets/lec04_06_choose_max_len.png)
+![문장 길이 분포에서 MAX_LEN을 정하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_06_choose_max_len.png)
 
 ```python
 lens = [len(tok.tokenize(t)) for t in df["text"]]
@@ -193,7 +193,7 @@ MAX_LEN = 32
 
 토크나이저를 이용해 모든 문장을 고정 길이의 `input_ids`와 `attention_mask`로 변환합니다.
 
-![문장을 토큰 ID와 어텐션 마스크로 변환하는 과정](assets/lec04_07_token_ids_mask.png)
+![문장을 토큰 ID와 어텐션 마스크로 변환하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_07_token_ids_mask.png)
 
 ```python
 out = tok(
@@ -226,7 +226,7 @@ attention_mask.shape = (2400, 32)
 
 문자열로 된 범주명을 모델이 사용할 수 있는 정수 라벨로 변환합니다.
 
-![문자열 범주를 숫자 라벨로 변환하는 과정](assets/lec04_08_label_encoding.png)
+![문자열 범주를 숫자 라벨로 변환하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_08_label_encoding.png)
 
 ```python
 le = LabelEncoder()
@@ -253,7 +253,7 @@ print("y[:10]:", y[:10])
 
 전체 데이터의 70%는 훈련, 15%는 검증, 15%는 테스트에 사용합니다.
 
-![데이터를 훈련 검증 테스트로 나누는 과정](assets/lec04_09_data_split.png)
+![데이터를 훈련 검증 테스트로 나누는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_09_data_split.png)
 
 ```python
 idx = np.arange(len(y))
@@ -291,7 +291,7 @@ print("test:", len(idx_test))
 
 전처리 결과와 분할 인덱스를 하나의 NPZ 파일로 저장합니다.
 
-![전처리 결과를 저장하고 여러 모델에서 재사용하는 과정](assets/lec04_10_save_npz.png)
+![전처리 결과를 저장하고 여러 모델에서 재사용하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec04_10_save_npz.png)
 
 ```python
 fname = "data.npz"
@@ -349,4 +349,3 @@ files.download(fname)
 - `attention_mask`는 실제 토큰과 PAD 위치를 구분합니다.
 - 세 범주를 각각 800문장으로 맞춰 총 2,400문장을 사용합니다.
 - 저장된 분할 인덱스를 재사용하면 여러 모델을 같은 조건에서 비교할 수 있습니다.
-

@@ -18,7 +18,7 @@
 
 자연어란 한국어와 영어처럼 사람이 일상에서 사용하는 언어를 말합니다. 자연어 처리는 이러한 언어를 컴퓨터가 읽고 분석하며, 적절한 결과를 만들 수 있도록 연결하는 기술입니다.
 
-![사람의 언어와 컴퓨터를 연결하는 NLP](assets/lec01_01_nlp_overview.png)
+![사람의 언어와 컴퓨터를 연결하는 NLP](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_01_nlp_overview.png)
 
 예를 들어 사람이 컴퓨터에 “오늘 날씨를 알려줘”라고 질문하면, 컴퓨터는 문장의 단어와 의도를 분석한 뒤 적절한 정보를 찾아 응답해야 합니다. 이 과정에 자연어 처리 기술이 사용됩니다.
 
@@ -39,7 +39,7 @@
 
 하나의 문장도 작업 목적에 따라 서로 다른 방식으로 처리할 수 있습니다.
 
-![분류, 번역, 질의응답의 예](assets/lec01_02_nlp_tasks.png)
+![분류, 번역, 질의응답의 예](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_02_nlp_tasks.png)
 
 예를 들어 “이 영화는 정말 재미있다.”라는 문장을 다음과 같이 활용할 수 있습니다.
 
@@ -56,7 +56,7 @@
 
 사람은 문장의 상황과 앞뒤 내용을 자연스럽게 고려하지만, 컴퓨터는 이를 명시적으로 학습해야 합니다. 특히 같은 단어도 문맥에 따라 의미가 달라질 수 있습니다.
 
-![문맥에 따라 의미가 달라지는 단어](assets/lec01_03_context.png)
+![문맥에 따라 의미가 달라지는 단어](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_03_context.png)
 
 다음 두 문장에서 `은행`의 의미를 비교해 봅시다.
 
@@ -80,7 +80,7 @@
 
 딥러닝 모델은 문장을 그대로 계산할 수 없습니다. 따라서 문장을 작은 단위로 나누고 숫자로 변환해야 합니다.
 
-![문장이 모델 입력으로 변환되는 과정](assets/lec01_04_text_to_input.png)
+![문장이 모델 입력으로 변환되는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_04_text_to_input.png)
 
 문장은 일반적으로 다음 과정을 거쳐 모델의 입력이 됩니다.
 
@@ -115,7 +115,7 @@
 
 자연어 처리 기술은 단어의 출현 횟수를 세는 방법에서 시작해 문맥을 폭넓게 이해하고 문장을 생성하는 대규모 언어 모델로 발전했습니다.
 
-![NLP 기술의 발전 과정](assets/lec01_05_nlp_history.png)
+![NLP 기술의 발전 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_05_nlp_history.png)
 
 대표적인 발전 흐름은 다음과 같습니다.
 
@@ -151,7 +151,7 @@
 
 문장은 단어의 순서가 중요합니다. **RNN(Recurrent Neural Network)**은 문장을 처음부터 순서대로 읽으면서 이전 단계의 정보를 다음 단계로 전달합니다.
 
-![문장을 순서대로 읽는 RNN과 정보를 기억하는 LSTM](assets/lec01_06_sequence_models.png)
+![문장을 순서대로 읽는 RNN과 정보를 기억하는 LSTM](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_06_sequence_models.png)
 
 예를 들어 “나는 오늘 학교에 갔다”라는 문장을 처리할 때 RNN은 다음과 같이 작동합니다.
 
@@ -184,7 +184,7 @@ Transformer는 현재의 번역 모델, 문서 요약 모델, 질의응답 모�
 
 언어 모델은 주어진 문맥 다음에 어떤 토큰이 나올 가능성이 높은지 계산합니다.
 
-![다음 토큰 예측을 반복하여 문장을 생성하는 과정](assets/lec01_07_language_model.png)
+![다음 토큰 예측을 반복하여 문장을 생성하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec01_07_language_model.png)
 
 예를 들어 다음 문맥이 주어졌다고 가정해 봅시다.
 
@@ -289,4 +289,3 @@ GPT는 앞에서 주어진 문맥을 이용해 다음 토큰을 예측합니다.
 ## 다음 강의
 
 다음 강의에서는 자연어 처리를 위한 텍스트 전처리를 학습합니다. 토큰화, 형태소 분석, 서브워드, 정수 인코딩, 패딩의 차이를 예제와 함께 살펴봅니다.
-

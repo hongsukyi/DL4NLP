@@ -17,7 +17,7 @@ CNN(Convolutional Neural Network)은 이미지뿐 아니라 텍스트에도 사�
 
 텍스트용 1D CNN은 문장의 짧은 구간을 이동하며 특징을 찾습니다. 찾은 특징을 모아 문장을 하나의 벡터로 요약하고, 이 벡터를 이용해 범주를 예측할 수 있습니다.
 
-![텍스트를 처리하는 1D CNN의 전체 개념](assets/lec06_01_text_cnn_overview.png)
+![텍스트를 처리하는 1D CNN의 전체 개념](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_01_text_cnn_overview.png)
 
 ```text
 문장
@@ -41,7 +41,7 @@ Conv1D와 ReLU
 
 CNN이 한 번에 살펴보는 작은 영역을 **지역 영역(local region)**이라고 합니다. 텍스트에서는 서로 이웃한 여러 토큰이 하나의 지역 영역이 됩니다.
 
-![서로 이웃한 토큰에서 지역 패턴을 찾는 과정](assets/lec06_02_local_patterns.png)
+![서로 이웃한 토큰에서 지역 패턴을 찾는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_02_local_patterns.png)
 
 다음 문장을 예로 살펴봅시다.
 
@@ -85,7 +85,7 @@ CNN이 한 번에 살펴보는 작은 영역을 **지역 영역(local region)**�
 
 각 토큰은 여러 실수로 이루어진 임베딩 벡터를 가집니다. 여러 토큰의 임베딩을 모으면 하나의 행렬이 만들어집니다.
 
-![임베딩 출력과 PyTorch Conv1d 입력 형태](assets/lec06_03_embedding_conv1d_input.png)
+![임베딩 출력과 PyTorch Conv1d 입력 형태](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_03_embedding_conv1d_input.png)
 
 배치 크기가 32, 문장 길이가 20, 임베딩 차원이 64라면 임베딩 층의 출력 크기는 다음과 같습니다.
 
@@ -117,7 +117,7 @@ x = conv1d(x)
 
 합성곱은 입력의 작은 구간과 필터의 값을 같은 위치끼리 곱한 뒤 모두 더합니다. 여기에 편향을 더하면 한 위치의 특징값이 만들어집니다.
 
-![입력 구간과 필터로 특징값을 계산하는 과정](assets/lec06_04_convolution_calculation.png)
+![입력 구간과 필터로 특징값을 계산하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_04_convolution_calculation.png)
 
 간단한 1차원 예를 살펴봅시다.
 
@@ -157,7 +157,7 @@ $$
 
 **스트라이드(stride)**는 필터가 한 번 계산한 뒤 다음 위치로 몇 칸 이동하는지를 나타냅니다.
 
-![Stride 1과 Stride 2의 이동 간격 비교](assets/lec06_05_stride_padding.png)
+![Stride 1과 Stride 2의 이동 간격 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_05_stride_padding.png)
 
 - Stride 1: 필터가 한 칸씩 이동합니다.
 - Stride 2: 필터가 두 칸씩 이동합니다.
@@ -197,7 +197,7 @@ conv = nn.Conv1d(
 
 입력 채널 수와 필터 수는 서로 다른 값을 나타냅니다.
 
-![입력 채널과 여러 Conv1D 필터의 관계](assets/lec06_06_channels_filters.png)
+![입력 채널과 여러 Conv1D 필터의 관계](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_06_channels_filters.png)
 
 - **입력 채널 수:** Conv1D에 들어오는 특징의 수입니다. 텍스트 모델에서는 일반적으로 임베딩 차원과 같습니다.
 - **필터 수:** 모델이 학습할 필터의 개수입니다. Conv1D의 출력 채널 수가 됩니다.
@@ -238,7 +238,7 @@ ReLU는 음수를 0으로 만들고 양수는 그대로 유지합니다. 이를 
 
 **맥스 풀링(max pooling)**은 정해진 구간마다 가장 큰 값을 선택하여 특징의 길이를 줄입니다.
 
-![맥스 풀링과 글로벌 맥스 풀링 비교](assets/lec06_07_max_pooling.png)
+![맥스 풀링과 글로벌 맥스 풀링 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_07_max_pooling.png)
 
 ```text
 입력: [1, 5, 2, 9, 3, 4]
@@ -271,7 +271,7 @@ ReLU는 음수를 0으로 만들고 양수는 그대로 유지합니다. 이를 
 
 ## 13. CNN 문장 분류의 전체 구조
 
-![1D CNN 문장 분류 모델의 전체 구조](assets/lec06_08_cnn_classifier.png)
+![1D CNN 문장 분류 모델의 전체 구조](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec06_08_cnn_classifier.png)
 
 1D CNN 문장 분류 모델은 다음 순서로 작동합니다.
 
@@ -335,4 +335,3 @@ ReLU는 음수를 0으로 만들고 양수는 그대로 유지합니다. 이를 
 ## 다음 강의
 
 다음 강의에서는 같은 데이터와 분할을 사용해 Flatten, 평균 풀링, Conv1D 모델을 구현하고 성능을 비교합니다.
-

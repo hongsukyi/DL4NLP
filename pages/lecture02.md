@@ -19,7 +19,7 @@
 
 딥러닝 모델은 사람이 작성한 문장을 그대로 계산할 수 없습니다. 먼저 문장을 일정한 단위로 나누고, 각 단위를 숫자로 바꿔야 합니다. 여러 문장을 한 번에 처리하려면 입력 길이도 일정하게 맞춰야 합니다.
 
-![문장이 모델 입력으로 변환되는 전처리 과정](assets/lec02_01_preprocessing_pipeline.png)
+![문장이 모델 입력으로 변환되는 전처리 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_01_preprocessing_pipeline.png)
 
 텍스트 전처리의 기본 흐름은 다음과 같습니다.
 
@@ -43,7 +43,7 @@
 
 **토큰(token)**은 모델이 처리하는 텍스트의 기본 단위입니다. 문장을 토큰으로 나누는 과정을 **토큰화(tokenization)**라고 합니다.
 
-![단어, 형태소, 서브워드 토큰화 비교](assets/lec02_02_tokenization_types.png)
+![단어, 형태소, 서브워드 토큰화 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_02_tokenization_types.png)
 
 문장은 여러 기준으로 나눌 수 있습니다.
 
@@ -62,7 +62,7 @@
 
 영어 문장은 단어 사이에 공백이 있어 비교적 쉽게 나눌 수 있습니다. 그러나 축약형과 문장부호까지 고려하면 단순한 공백 분리만으로는 충분하지 않습니다.
 
-![영어의 공백 토큰화와 규칙 기반 토큰화](assets/lec02_03_english_tokenization.png)
+![영어의 공백 토큰화와 규칙 기반 토큰화](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_03_english_tokenization.png)
 
 다음 문장을 살펴봅시다.
 
@@ -90,7 +90,7 @@ It's home-based.
 
 한국어는 영어와 달리 조사와 어미가 단어에 붙어 나타납니다. 따라서 공백만 기준으로 나누면 문법적인 정보와 의미 단위를 충분히 구분하기 어렵습니다.
 
-![한국어 어절을 형태소로 나누는 과정](assets/lec02_04_korean_morpheme.png)
+![한국어 어절을 형태소로 나누는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_04_korean_morpheme.png)
 
 다음 표현을 비교해 봅시다.
 
@@ -165,7 +165,7 @@ print(result)
 
 **정제(cleaning)**는 분석에 필요하지 않은 요소를 제거하거나 정리하는 과정입니다. **정규화(normalization)**는 서로 다르게 표현된 텍스트의 형식을 일정하게 맞추는 과정입니다.
 
-![텍스트 정제와 정규화의 전후 비교](assets/lec02_05_cleaning_normalization.png)
+![텍스트 정제와 정규화의 전후 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_05_cleaning_normalization.png)
 
 | 구분 | 목적 | 예 |
 |---|---|---|
@@ -213,7 +213,7 @@ Transformer 기반 사전학습 모델을 사용할 때는 모델이 학습할 �
 
 **서브워드(subword)** 토큰화는 단어 전체보다 작은 조각을 토큰으로 사용하는 방식입니다. 자주 등장하는 단어는 하나의 토큰으로 유지하고, 드문 단어나 새로운 단어는 알고 있는 조각으로 나눌 수 있습니다.
 
-![서브워드 토큰화와 BPE의 병합 과정](assets/lec02_06_subword_bpe.png)
+![서브워드 토큰화와 BPE의 병합 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_06_subword_bpe.png)
 
 예를 들어 토크나이저가 `해양`, `경찰`, `순찰`과 같은 조각을 알고 있다면, 처음 보는 복합어나 변형된 단어도 여러 조각의 조합으로 표현할 수 있습니다.
 
@@ -253,7 +253,7 @@ BPE는 새로운 문장을 볼 때마다 병합 규칙을 다시 학습하지 �
 
 토큰화가 끝나면 각 토큰을 숫자 ID로 바꿉니다. 이 과정을 **정수 인코딩(integer encoding)**이라고 합니다.
 
-![어휘집을 이용해 토큰을 숫자 ID로 바꾸는 과정](assets/lec02_07_integer_encoding.png)
+![어휘집을 이용해 토큰을 숫자 ID로 바꾸는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_07_integer_encoding.png)
 
 **어휘집(vocabulary)**은 토큰과 숫자 ID의 대응표입니다.
 
@@ -286,7 +286,7 @@ BPE는 새로운 문장을 볼 때마다 병합 규칙을 다시 학습하지 �
 
 짧은 문장의 빈 위치에 `[PAD]` 토큰을 추가하는 과정을 **패딩(padding)**이라고 합니다.
 
-![패딩과 잘라내기의 차이](assets/lec02_08_padding_truncation.png)
+![패딩과 잘라내기의 차이](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec02_08_padding_truncation.png)
 
 최대 길이를 5로 정했다고 가정해 봅시다.
 
@@ -395,4 +395,3 @@ attention_mask: [ 1,  1,  1, 0, 0]
 ## 다음 강의
 
 다음 강의에서는 토큰 ID를 임베딩 벡터로 바꾸는 과정을 학습합니다. Word2Vec과 문맥적 표현의 기본 개념을 알아봅니다.
-

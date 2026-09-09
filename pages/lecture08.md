@@ -17,7 +17,7 @@ RNN(Recurrent Neural Network)은 문장의 토큰을 순서대로 읽으며 이�
 
 RNN은 토큰을 앞에서부터 하나씩 읽습니다. 각 단계에서 현재 토큰과 앞에서 전달된 정보를 함께 사용해 새로운 상태를 만듭니다.
 
-![RNN으로 문장을 순서대로 읽고 분류하는 과정](assets/lec08_01_rnn_overview.png)
+![RNN으로 문장을 순서대로 읽고 분류하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_01_rnn_overview.png)
 
 ```text
 문장
@@ -41,7 +41,7 @@ RNN의 중요한 특징은 현재 토큰만 보는 것이 아니라, 앞에서 �
 
 모델마다 문장에서 정보를 모으는 방식이 다릅니다.
 
-![Flatten Masked GAP CNN RNN의 문장 처리 방식 비교](assets/lec08_02_model_comparison.png)
+![Flatten Masked GAP CNN RNN의 문장 처리 방식 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_02_model_comparison.png)
 
 | 모델 | 문장을 처리하는 대표적인 방식 |
 |---|---|
@@ -58,7 +58,7 @@ RNN의 중요한 특징은 현재 토큰만 보는 것이 아니라, 앞에서 �
 
 문장에 포함된 단어가 같아도 순서가 바뀌면 의미가 달라질 수 있습니다.
 
-![같은 단어의 순서에 따라 문장 의미가 달라지는 예](assets/lec08_03_word_order.png)
+![같은 단어의 순서에 따라 문장 의미가 달라지는 예](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_03_word_order.png)
 
 ```text
 개가 사람을 문다.
@@ -73,7 +73,7 @@ RNN의 중요한 특징은 현재 토큰만 보는 것이 아니라, 앞에서 �
 
 RNN은 각 시점마다 **은닉 상태(hidden state)**를 계산합니다.
 
-![이전 은닉 상태와 현재 입력으로 새 은닉 상태를 만드는 과정](assets/lec08_04_hidden_state.png)
+![이전 은닉 상태와 현재 입력으로 새 은닉 상태를 만드는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_04_hidden_state.png)
 
 시점 (t)의 은닉 상태는 다음 두 정보를 함께 사용합니다.
 
@@ -122,7 +122,7 @@ $$
 
 하나의 RNN 셀을 토큰 순서에 따라 펼쳐 그린 것을 **Unrolling**이라고 합니다.
 
-![RNN을 시간축으로 펼치고 같은 가중치를 재사용하는 구조](assets/lec08_05_unrolling_weight_sharing.png)
+![RNN을 시간축으로 펼치고 같은 가중치를 재사용하는 구조](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_05_unrolling_weight_sharing.png)
 
 ```text
 x₁ → RNN → h₁
@@ -148,7 +148,7 @@ x₄ → RNN → h₄
 
 문장을 모두 읽은 뒤 마지막 유효 토큰까지의 은닉 상태를 문장 벡터로 사용할 수 있습니다.
 
-![마지막 유효 은닉 상태를 이용한 문장 분류](assets/lec08_06_hidden_to_classification.png)
+![마지막 유효 은닉 상태를 이용한 문장 분류](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_06_hidden_to_classification.png)
 
 ```text
 토큰 임베딩 순서
@@ -181,7 +181,7 @@ model = keras.Model(inputs, outputs)
 
 RNN도 예측과 정답의 차이를 줄이도록 가중치를 학습합니다. RNN에서는 여러 시점에 같은 가중치가 사용되기 때문에 시간축의 계산을 거꾸로 따라가며 기울기를 계산합니다.
 
-![RNN의 시간축 역전파와 장기 의존성 문제](assets/lec08_07_bptt_long_dependency.png)
+![RNN의 시간축 역전파와 장기 의존성 문제](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_07_bptt_long_dependency.png)
 
 이 과정을 **BPTT(Backpropagation Through Time)**라고 합니다.
 
@@ -214,7 +214,7 @@ RNN도 예측과 정답의 차이를 줄이도록 가중치를 학습합니다. 
 
 Keras의 `SimpleRNN`에서 `units`는 은닉 상태 벡터의 크기를 나타냅니다.
 
-![Keras SimpleRNN의 units와 출력 벡터](assets/lec08_08_keras_simplernn.png)
+![Keras SimpleRNN의 units와 출력 벡터](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec08_08_keras_simplernn.png)
 
 ```python
 x = layers.SimpleRNN(units=32)(x)
@@ -259,4 +259,3 @@ RNN 모델도 훈련 Loss와 검증 Loss를 함께 확인해야 합니다.
 - BPTT는 시간축을 거슬러 기울기를 계산하는 학습 방법입니다.
 - 기본 RNN은 긴 문장에서 오래전 정보를 학습하기 어려울 수 있습니다.
 - 다음 Lecture 09에서는 장기 정보를 선택적으로 유지하는 LSTM과 GRU를 살펴봅니다.
-

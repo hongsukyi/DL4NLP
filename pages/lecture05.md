@@ -19,7 +19,7 @@
 
 딥러닝 모델을 만드는 과정은 크게 훈련과 평가로 나눌 수 있습니다.
 
-![데이터에서 모델 훈련과 평가까지의 흐름](assets/lec05_01_training_overview.png)
+![데이터에서 모델 훈련과 평가까지의 흐름](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_01_training_overview.png)
 
 ```text
 문장 → 특징 추출 → 예측 → 손실 계산 → 가중치 조정 → 성능 평가
@@ -34,7 +34,7 @@
 
 퍼셉트론은 여러 입력에 가중치를 곱해 더하고, 편향을 추가하여 결과를 판단하는 초기 신경망 모델입니다.
 
-![퍼셉트론에서 MLP로 확장되는 구조](assets/lec05_02_perceptron_mlp.png)
+![퍼셉트론에서 MLP로 확장되는 구조](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_02_perceptron_mlp.png)
 
 퍼셉트론의 계산은 다음과 같이 나타낼 수 있습니다.
 
@@ -52,7 +52,7 @@ $$
 
 MLP, CNN, LSTM·GRU는 문장에서 서로 다른 특징을 효과적으로 활용합니다.
 
-![MLP, CNN, LSTM이 활용하는 문장 특징 비교](assets/lec05_03_model_comparison.png)
+![MLP, CNN, LSTM이 활용하는 문장 특징 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_03_model_comparison.png)
 
 | 모델 | 대표적으로 활용하는 특징 |
 |---|---|
@@ -82,7 +82,7 @@ MLP, CNN, LSTM·GRU는 문장에서 서로 다른 특징을 효과적으로 활�
 
 문장 분류 모델은 토큰 ID를 임베딩 벡터로 변환하고, 여러 토큰의 정보를 하나의 문장 표현으로 요약한 뒤 분류 점수를 계산합니다.
 
-![토큰 ID에서 문장 분류까지의 과정](assets/lec05_04_embedding_to_classification.png)
+![토큰 ID에서 문장 분류까지의 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_04_embedding_to_classification.png)
 
 ```text
 토큰 ID → 임베딩 → 평균 풀링 → 완전연결층 → 분류 점수
@@ -100,7 +100,7 @@ Keras에서는 완전연결층을 일반적으로 `Dense`로 구현합니다. Py
 
 Flatten과 평균 풀링은 모두 여러 값을 하나의 벡터로 바꾸지만 처리 방식과 결과 크기가 다릅니다.
 
-![Flatten과 평균 풀링 비교](assets/lec05_05_flatten_mean_pooling.png)
+![Flatten과 평균 풀링 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_05_flatten_mean_pooling.png)
 
 입력의 크기가 `토큰 3개 × 임베딩 2차원`이라고 가정해 봅시다.
 
@@ -117,7 +117,7 @@ Flatten과 평균 풀링은 모두 여러 값을 하나의 벡터로 바꾸지�
 
 모델 학습은 예측과 정답의 차이를 계산하고, 그 차이가 줄어들도록 가중치를 조정하는 반복 과정입니다.
 
-![예측부터 가중치 갱신까지의 학습 순환](assets/lec05_06_training_loop.png)
+![예측부터 가중치 갱신까지의 학습 순환](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_06_training_loop.png)
 
 Keras에서는 `model.fit()`을 호출하면 아래 다섯 단계가 배치마다 자동으로 반복됩니다.
 
@@ -154,7 +154,7 @@ history = model.fit(
 
 전체 데이터를 목적에 따라 훈련, 검증, 테스트 데이터로 나눕니다.
 
-![훈련, 검증, 테스트 데이터의 역할](assets/lec05_07_data_split.png)
+![훈련, 검증, 테스트 데이터의 역할](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_07_data_split.png)
 
 | 데이터 | 역할 |
 |---|---|
@@ -185,7 +185,7 @@ Loss와 Accuracy는 모두 모델의 상태를 확인하지만 서로 다른 정
 
 혼동행렬은 실제 범주와 모델이 예측한 범주를 비교하는 표입니다.
 
-![실제 범주와 예측 범주를 비교하는 혼동행렬](assets/lec05_08_confusion_matrix.png)
+![실제 범주와 예측 범주를 비교하는 혼동행렬](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec05_08_confusion_matrix.png)
 
 - 세로축: 실제 범주
 - 가로축: 예측 범주

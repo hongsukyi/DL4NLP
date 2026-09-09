@@ -17,7 +17,7 @@
 
 ## 1. 실습 전체 흐름
 
-![순환 모델 실습과 종합 비교의 전체 흐름](assets/lec10_01_workflow.png)
+![순환 모델 실습과 종합 비교의 전체 흐름](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_01_workflow.png)
 
 ```text
 저장된 데이터와 기존 결과 불러오기
@@ -39,7 +39,7 @@
 
 Lecture 04에서 만든 NPZ 파일과 Lecture 07에서 저장한 `res.json`을 사용합니다.
 
-![데이터와 기존 모델 결과를 불러오는 과정](assets/lec10_02_load_data_results.png)
+![데이터와 기존 모델 결과를 불러오는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_02_load_data_results.png)
 
 ```python
 import json
@@ -102,7 +102,7 @@ print("classes:", classes)
 
 토큰 ID를 64차원 임베딩 벡터로 변환하고, `attention_mask`가 0인 PAD 위치를 0으로 만듭니다.
 
-![Embedding과 attention mask를 순환 모델에 적용하는 과정](assets/lec10_03_embedding_masking.png)
+![Embedding과 attention mask를 순환 모델에 적용하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_03_embedding_masking.png)
 
 ```python
 dim = 64
@@ -131,7 +131,7 @@ Embedding 출력 : [batch, 32, 64]
 
 SimpleRNN은 현재 입력과 이전 은닉 상태를 이용해 새로운 은닉 상태를 만듭니다.
 
-![Keras SimpleRNN 분류 모델의 구조](assets/lec10_04_simple_rnn.png)
+![Keras SimpleRNN 분류 모델의 구조](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_04_simple_rnn.png)
 
 ```python
 inp = keras.Input((max_len,))
@@ -163,7 +163,7 @@ rnn_model = keras.Model([inp, inm], out)
 
 LSTM은 셀 상태와 은닉 상태를 사용하고, 망각·입력·출력 게이트로 정보의 흐름을 조절합니다.
 
-![Keras LSTM 분류 모델의 구조](assets/lec10_05_lstm.png)
+![Keras LSTM 분류 모델의 구조](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_05_lstm.png)
 
 ```python
 inp = keras.Input((max_len,))
@@ -193,7 +193,7 @@ LSTM은 SimpleRNN보다 구조가 복잡하지만 이번 실행의 테스트 정
 
 GRU는 하나의 은닉 상태와 리셋·업데이트 게이트를 사용하는 순환 모델입니다.
 
-![Keras GRU 분류 모델의 구조](assets/lec10_06_gru.png)
+![Keras GRU 분류 모델의 구조](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_06_gru.png)
 
 ```python
 inp = keras.Input((max_len,))
@@ -221,7 +221,7 @@ gru_model = keras.Model([inp, inm], out)
 
 ## 7. 같은 조건으로 학습하고 평가하기
 
-![세 순환 모델의 공통 학습 조건과 평가 항목](assets/lec10_07_common_training_evaluation.png)
+![세 순환 모델의 공통 학습 조건과 평가 항목](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_07_common_training_evaluation.png)
 
 세 모델에는 같은 학습 설정을 적용합니다.
 
@@ -268,7 +268,7 @@ Accuracy 하나만으로 모델을 판단하지 않습니다. 학습곡선에서
 
 Lecture 07과 Lecture 10에서 얻은 결과를 하나의 표로 정리합니다.
 
-![여섯 문장 분류 모델의 테스트 정확도 비교](assets/lec10_08_test_accuracy_comparison.png)
+![여섯 문장 분류 모델의 테스트 정확도 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_08_test_accuracy_comparison.png)
 
 | 모델 | 테스트 정확도 |
 |---|---:|
@@ -292,7 +292,7 @@ Conv1D와 Masked GAP의 차이는 `0.002`, 즉 0.2%p에 불과합니다. 한 번
 
 ## 9. 검증 손실과 결과 해석
 
-![검증 손실을 이용한 모델 선택과 테스트 데이터의 역할](assets/lec10_09_validation_loss_interpretation.png)
+![검증 손실을 이용한 모델 선택과 테스트 데이터의 역할](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec10_09_validation_loss_interpretation.png)
 
 이번 순환 모델들의 검증 손실은 초반에 가장 낮아진 뒤 다시 증가했습니다.
 

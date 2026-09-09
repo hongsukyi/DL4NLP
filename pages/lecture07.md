@@ -19,7 +19,7 @@
 
 세 모델은 같은 데이터와 같은 훈련·검증·테스트 분할을 사용합니다.
 
-![같은 데이터로 Flatten GAP Conv1D를 비교하는 흐름](assets/lec07_01_three_models.png)
+![같은 데이터로 Flatten GAP Conv1D를 비교하는 흐름](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_01_three_models.png)
 
 | 모델 | 문장을 요약하는 방식 |
 |---|---|
@@ -71,7 +71,7 @@ Lecture 04에서 만든 다음 파일을 Colab 작업 폴더에 업로드합니�
 data.npz
 ```
 
-![NPZ 파일에서 입력과 데이터 분할을 불러오는 과정](assets/lec07_02_load_npz.png)
+![NPZ 파일에서 입력과 데이터 분할을 불러오는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_02_load_npz.png)
 
 ```python
 from google.colab import files
@@ -114,7 +114,7 @@ print("classes:", classes)
 
 Embedding층은 각 토큰 ID를 64개의 실수로 이루어진 벡터로 변환합니다.
 
-![토큰 ID를 64차원 임베딩 벡터로 변환하는 과정](assets/lec07_03_embedding.png)
+![토큰 ID를 64차원 임베딩 벡터로 변환하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_03_embedding.png)
 
 ```text
 토큰 ID 배열: [batch, 32]
@@ -141,7 +141,7 @@ def embed(input_ids, attention_mask):
 
 PAD는 입력 길이를 맞추기 위한 자리이므로 문장의 실제 내용처럼 처리하면 안 됩니다.
 
-![어텐션 마스크로 실제 토큰과 PAD를 구분하는 과정](assets/lec07_04_padding_mask.png)
+![어텐션 마스크로 실제 토큰과 PAD를 구분하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_04_padding_mask.png)
 
 - Embedding 출력에서 PAD 위치를 `0`으로 만듭니다.
 - 평균 풀링에서는 실제 토큰 수로만 나눕니다.
@@ -158,7 +158,7 @@ attention_mask = 0 → PAD
 
 세 모델에 같은 옵티마이저, 배치 크기, 최대 Epoch를 적용합니다.
 
-![세 모델에 공통 학습 설정을 적용하는 과정](assets/lec07_05_training_settings.png)
+![세 모델에 공통 학습 설정을 적용하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_05_training_settings.png)
 
 ```python
 def fit_model(model):
@@ -194,7 +194,7 @@ Early Stopping은 검증 손실이 더 이상 좋아지지 않을 때 학습을 
 
 Flatten은 `32 × 64` 형태의 임베딩을 하나의 긴 벡터로 펼칩니다.
 
-![임베딩 행렬을 펼쳐 MLP로 분류하는 과정](assets/lec07_06_flatten_model.png)
+![임베딩 행렬을 펼쳐 MLP로 분류하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_06_flatten_model.png)
 
 ```python
 inp = keras.Input(
@@ -226,7 +226,7 @@ Flatten은 모든 위치의 값을 보존하지만 입력 길이가 길어지면
 
 두 번째 모델은 실제 토큰의 임베딩을 더한 뒤 유효한 토큰 수로 나눕니다.
 
-![PAD를 제외하고 평균 문장 벡터를 만드는 과정](assets/lec07_07_masked_gap.png)
+![PAD를 제외하고 평균 문장 벡터를 만드는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_07_masked_gap.png)
 
 ```python
 inp = keras.Input(
@@ -273,7 +273,7 @@ h_gap = fit_model(gap_model)
 
 Conv1D 모델은 커널 크기 3으로 서로 이웃한 토큰의 지역 패턴을 찾습니다.
 
-![Conv1D와 글로벌 맥스 풀링으로 문장을 분류하는 과정](assets/lec07_08_conv1d_model.png)
+![Conv1D와 글로벌 맥스 풀링으로 문장을 분류하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_08_conv1d_model.png)
 
 ```python
 inp = keras.Input(
@@ -318,7 +318,7 @@ Global Max Pooling은 각 필터가 문장 전체에서 만든 값 중 가장 �
 
 훈련과 검증 데이터의 Loss와 Accuracy를 함께 그립니다.
 
-![훈련과 검증의 Loss와 Accuracy 학습곡선](assets/lec07_09_learning_curves.png)
+![훈련과 검증의 Loss와 Accuracy 학습곡선](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_09_learning_curves.png)
 
 ```python
 def plot_history(history, name):
@@ -356,7 +356,7 @@ plot_history(h_conv, "Conv1D")
 
 테스트 문장마다 확률이 가장 높은 범주를 예측값으로 선택합니다.
 
-![세 모델의 테스트 정확도와 혼동행렬 비교](assets/lec07_10_test_confusion_matrix.png)
+![세 모델의 테스트 정확도와 혼동행렬 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_10_test_confusion_matrix.png)
 
 ```python
 def evaluate_model(model, name):
@@ -399,7 +399,7 @@ pred_conv, acc_conv = evaluate_model(conv_model, "Conv1D")
 
 각 모델의 `feat`층은 분류 직전에 문장을 16차원 벡터로 표현합니다. t-SNE를 이용하면 이 벡터를 2차원에 배치해 살펴볼 수 있습니다.
 
-![16차원 문장 특징을 t-SNE로 시각화하는 과정](assets/lec07_11_tsne.png)
+![16차원 문장 특징을 t-SNE로 시각화하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_11_tsne.png)
 
 ```python
 def plot_tsne(model, name):
@@ -448,7 +448,7 @@ plot_tsne(conv_model, "Conv1D")
 
 다음 RNN 비교 실습(Lab3)에서 이어서 사용할 수 있도록, Lab2·Lab3와 같은 방식으로 결과를 저장합니다. 모델 이름을 키로 하는 딕셔너리에 각 모델의 결과를 담고, 기존 `res.json`이 있으면 이어서 누적합니다.
 
-![세 모델의 결과를 JSON 파일로 저장하는 과정](assets/lec07_12_save_results.png)
+![세 모델의 결과를 JSON 파일로 저장하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec07_12_save_results.png)
 
 ```python
 res = {
@@ -504,4 +504,3 @@ files.download("res.json")
 - 학습곡선, 테스트 Accuracy, 혼동행렬은 서로 다른 정보를 제공합니다.
 - t-SNE는 특징을 탐색하는 도구이며 성능 지표를 대신하지 않습니다.
 - 동일한 데이터 분할을 재사용해야 모델 비교가 일관됩니다.
-

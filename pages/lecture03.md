@@ -17,7 +17,7 @@
 
 토큰 ID는 어휘집에서 토큰을 찾기 위한 번호입니다. 임베딩 벡터는 토큰의 특징을 여러 실수로 표현한 값입니다.
 
-![토큰이 ID를 거쳐 임베딩 벡터로 변환되는 과정](assets/lec03_01_id_to_embedding.png)
+![토큰이 ID를 거쳐 임베딩 벡터로 변환되는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec03_01_id_to_embedding.png)
 
 ```text
 사과 → ID 15 → [0.2, -0.5, 0.8, 0.1]
@@ -46,7 +46,7 @@
 
 두 번호의 차이는 1이지만, 이것이 두 토큰의 의미가 비슷하다는 뜻은 아닙니다. ID는 토큰을 구분하기 위한 식별 번호일 뿐입니다.
 
-![토큰 ID의 숫자 차이와 의미 차이는 관계가 없음](assets/lec03_02_id_not_meaning.png)
+![토큰 ID의 숫자 차이와 의미 차이는 관계가 없음](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec03_02_id_not_meaning.png)
 
 단어 사이의 의미 관계를 계산하려면 ID가 아니라 학습된 벡터 표현이 필요합니다.
 
@@ -56,7 +56,7 @@
 
 텍스트를 벡터로 표현하는 방법에는 여러 가지가 있습니다.
 
-![One-hot, Word2Vec, BERT 표현 비교](assets/lec03_03_vector_representations.png)
+![One-hot, Word2Vec, BERT 표현 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec03_03_vector_representations.png)
 
 | 표현 | 특징 | 같은 토큰의 표현 |
 |---|---|---|
@@ -72,7 +72,7 @@
 
 임베딩 테이블은 어휘집의 각 토큰에 대응하는 벡터를 저장한 표입니다. 토큰 ID는 임베딩 테이블에서 행을 선택하는 인덱스로 사용됩니다.
 
-![토큰 ID로 임베딩 테이블의 행을 찾는 과정](assets/lec03_04_embedding_lookup.png)
+![토큰 ID로 임베딩 테이블의 행을 찾는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec03_04_embedding_lookup.png)
 
 어휘집 크기가 10,000이고 임베딩 차원이 4라면 임베딩 테이블의 크기는 다음과 같습니다.
 
@@ -94,7 +94,7 @@ ID 15 → [0.2, -0.5, 0.8, 0.1]
 
 Word2Vec은 주변 단어를 이용한 예측 과제를 학습하면서 단어 벡터를 만드는 방법입니다.
 
-![CBOW와 Skip-gram 비교](assets/lec03_05_word2vec.png)
+![CBOW와 Skip-gram 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec03_05_word2vec.png)
 
 다음 문장을 예로 살펴봅시다.
 
@@ -132,7 +132,7 @@ Skip-gram은 가운데 단어를 보고 주변 단어를 예측합니다.
 사과 - 배 - 과일
 ```
 
-![비슷한 문맥의 단어가 가까이 위치하는 임베딩 공간](assets/lec03_06_embedding_space.png)
+![비슷한 문맥의 단어가 가까이 위치하는 임베딩 공간](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec03_06_embedding_space.png)
 
 그러나 임베딩은 학습 데이터와 학습 방법의 영향을 받습니다. 가까이 위치한다는 이유만으로 두 단어의 의미가 완전히 같다고 단정할 수는 없습니다.
 
@@ -204,4 +204,3 @@ t-SNE는 고차원 벡터를 2차원으로 줄여 점으로 표시하는 시각�
 ## 다음 강의
 
 다음 이론 강의에서는 딥러닝 모델이 문장 특징을 이용해 결과를 예측하고, 손실을 줄이도록 학습하는 과정을 살펴봅니다.
-

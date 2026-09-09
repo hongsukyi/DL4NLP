@@ -17,7 +17,7 @@
 
 **장기 의존성(long-term dependency)**은 오래전에 나온 정보가 현재의 판단에 영향을 주는 관계를 뜻합니다.
 
-![긴 문장에서 초기 정보가 약해지는 RNN의 장기 의존성 문제](assets/lec09_01_long_term_dependency.png)
+![긴 문장에서 초기 정보가 약해지는 RNN의 장기 의존성 문제](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_01_long_term_dependency.png)
 
 ```text
 초기 정보 → h₁ → h₂ → h₃ → ··· → hₜ → 현재 판단
@@ -37,7 +37,7 @@
 
 LSTM(Long Short-Term Memory)은 중요한 정보를 선택적으로 유지하고 불필요한 정보를 줄이도록 설계되었습니다.
 
-![기본 RNN과 LSTM의 정보 전달 방식 비교](assets/lec09_02_rnn_lstm_memory.png)
+![기본 RNN과 LSTM의 정보 전달 방식 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_02_rnn_lstm_memory.png)
 
 기본 RNN이 하나의 은닉 상태를 계속 갱신한다면, LSTM은 별도의 셀 상태를 두고 게이트로 정보의 흐름을 조절합니다.
 
@@ -54,7 +54,7 @@ LSTM(Long Short-Term Memory)은 중요한 정보를 선택적으로 유지하고
 
 LSTM에는 서로 역할이 다른 두 상태가 있습니다.
 
-![LSTM의 셀 상태와 은닉 상태를 두 종류의 메모로 비교](assets/lec09_03_cell_hidden_state.png)
+![LSTM의 셀 상태와 은닉 상태를 두 종류의 메모로 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_03_cell_hidden_state.png)
 
 | 상태 | 직관적인 역할 |
 |---|---|
@@ -74,7 +74,7 @@ LSTM에는 서로 역할이 다른 두 상태가 있습니다.
 
 망각 게이트(forget gate)는 이전 셀 상태의 각 정보를 얼마나 유지할지 결정합니다.
 
-![LSTM 망각 게이트가 과거 기억의 유지 비율을 정하는 과정](assets/lec09_04_forget_gate.png)
+![LSTM 망각 게이트가 과거 기억의 유지 비율을 정하는 과정](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_04_forget_gate.png)
 
 $$
 f_t = \sigma(W_f[h_{t-1}, x_t] + b_f)
@@ -123,7 +123,7 @@ $$
 
 출력 게이트(output gate)는 갱신된 셀 상태 중 현재 은닉 상태로 내보낼 정보를 결정합니다.
 
-![LSTM 입력 게이트와 출력 게이트의 역할 비교](assets/lec09_05_input_output_gate.png)
+![LSTM 입력 게이트와 출력 게이트의 역할 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_05_input_output_gate.png)
 
 $$
 o_t = \sigma(W_o[h_{t-1}, x_t] + b_o)
@@ -147,7 +147,7 @@ $$
 
 한 시점의 LSTM은 다음 순서로 정보를 처리합니다.
 
-![망각 저장 출력으로 이어지는 한 번의 LSTM 계산](assets/lec09_06_lstm_step.png)
+![망각 저장 출력으로 이어지는 한 번의 LSTM 계산](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_06_lstm_step.png)
 
 ### 1단계: 과거 기억에서 남길 부분 선택
 
@@ -206,7 +206,7 @@ GRU 역시 긴 문장의 정보를 항상 완벽하게 기억하는 것은 아�
 
 ## 9. LSTM과 GRU 비교
 
-![LSTM과 GRU의 상태와 게이트 구조 비교](assets/lec09_07_lstm_gru_comparison.png)
+![LSTM과 GRU의 상태와 게이트 구조 비교](https://cdn.jsdelivr.net/gh/hongsukyi/DL4NLP@main/assets/lec09_07_lstm_gru_comparison.png)
 
 | 항목 | LSTM | GRU |
 |---|---|---|
