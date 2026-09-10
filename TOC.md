@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - [Lecture 01. 딥러닝 기반 NLP 개요](pages/lecture01.md)
 - [Lecture 02. 자연어 처리를 위한 텍스트 전처리](pages/lecture02.md)
 - [Lecture 03. 정수 인코딩과 워드 임베딩](pages/lecture03.md)
@@ -8,3 +9,8 @@
 - [Lecture 08. 순환 신경망 RNN](pages/lecture08.md)
 - [Lecture 09. LSTM과 GRU](pages/lecture09.md)
 - [Lecture 10. RNN·LSTM·GRU 실습과 비교](pages/lecture10.md)
+=======
+# 목차
+
+* [시작하기](pages/getting-started.md)
+>>>>>>> e6094e8ea4602d7084ab0e785aa8e35b2877b518
